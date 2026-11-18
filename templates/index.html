@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#190b0d"><title>MovieSphere — Your Movie World Awaits</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://image.tmdb.org">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<header class="topbar"><a class="brand" href="/"><span class="brand-mark">▶</span><span>Movie<span class="brand-accent">Sphere</span><small>YOUR MOVIE WORLD</small></span></a>
+<nav><button class="nav-link active" id="discoverNav">⌂ <span>Discover</span></button><button class="nav-link" id="watchNav">♡ <span>Watchlist</span> <b class="nav-count" id="watchCount">0</b></button></nav>
+<div class="top-right"><span class="live-dot"></span><span>YOUR CINEMATIC UNIVERSE</span><button class="theme-toggle" id="themeToggle" title="Toggle theme">☾</button></div></header>
+<main>
+<section class="hero"><div class="hero-bg"></div><div class="hero-copy"><p class="eyebrow"><span class="eyebrow-line"></span> ✦ YOUR MOVIE WORLD AWAITS</p><h1>Your Movie<br><em>World</em> Awaits<span class="period">.</span></h1><p class="hero-sub">Discover amazing movies and personalised picks. Find your next unforgettable story.</p>
+<div class="search-wrap"><span class="search-icon">⌕</span><input id="searchInput" autocomplete="off" placeholder="Search movies, actors, directors..." aria-label="Search movies"><button id="searchClear" title="Clear search">×</button><div class="suggestions" id="suggestions"></div></div>
+<div class="hero-genres"><button class="genre-chip active" data-genre="all">▦ All</button><button class="genre-chip" data-genre="Action">⚔ Action</button><button class="genre-chip" data-genre="Comedy">☻ Comedy</button><button class="genre-chip" data-genre="Drama">▣ Drama</button><button class="genre-chip" data-genre="Science Fiction">🚀 Sci-Fi</button><button class="genre-chip" data-genre="Thriller">ϟ Thriller</button></div>
+<div class="hero-foot"><span>✦ DISCOVER</span><span>✦ SAVE YOUR FAVOURITES</span><span>✦ GET RECOMMENDATIONS</span></div></div><div class="hero-scene"><div class="moon"></div><div class="moon-glow"></div><div class="filmstrip strip-one"></div><div class="filmstrip strip-two"></div><div class="hill hill-back"></div><div class="hill hill-front"></div><div class="viewer"></div><div class="hero-stamp"><b>✦</b><span>YOUR NEXT<br><strong>GREAT FILM</strong></span></div></div></section>
+<section class="stats"><div><strong>{{ "{:,}".format(movie_count) }}<i>+</i></strong><span>LOCAL MOVIES</span></div><div><strong>2026</strong><span>LATEST RELEASE YEAR</span></div><div><strong>∞</strong><span>STORIES TO DISCOVER</span></div><div class="stats-note">A good movie is<br><b>always a good idea.</b></div></section>
+<section class="content" id="content"><div class="section-intro"><div><p class="eyebrow">THE COLLECTION</p><h2 id="sectionTitle">Explore your <em>movie world</em></h2><p id="sectionSub">From timeless favourites to the latest 2026 releases.</p></div><div class="total-pill"><span class="pulse"></span><b id="resultCount">—</b> TITLES</div></div>
+<div class="filter-panel"><div class="filter-head"><div><span class="filter-icon">☷</span><b>Find your next favourite</b><small>Choose a genre, year or rating</small></div><button id="resetFilters" class="reset-btn">Reset filters ↺</button></div>
+<div class="filters"><label>GENRE<select id="genreFilter"><option value="all">All genres</option>{% for genre in genres %}<option value="{{ genre }}">{{ genre }}</option>{% endfor %}</select></label><label>RELEASE YEAR<select id="yearFilter"><option value="all">All years (through 2026)</option>{% for year in years %}<option value="{{ year }}">{{ year }}</option>{% endfor %}</select></label><label>MINIMUM RATING<select id="ratingFilter"><option value="0">Any rating</option><option value="5">5.0+ ★</option><option value="6">6.0+ ★</option><option value="7">7.0+ ★</option><option value="8">8.0+ ★</option></select></label><label>SORT BY<select id="sortFilter"><option value="popular">Most popular</option><option value="rating">Top rated</option><option value="year">Newest first</option><option value="title">A — Z</option></select></label></div></div>
+<div class="section-heading"><div><span class="eyebrow" id="gridEyebrow">CURATED FOR YOU</span><h3 id="gridTitle">Trending movies</h3></div><span class="page-label" id="pageLabel">Explore the collection</span></div><div class="movie-grid" id="movieGrid"><div class="loading">Loading your movie universe…</div></div><button id="loadMore" class="load-more">Load more movies <span>↓</span></button>
+<div class="data-note" id="dataNote">Showing the included offline collection. Add a TMDB API key to load the full live catalogue through 2026.</div></section></main>
+<footer><a class="brand footer-brand" href="/"><span class="brand-mark">▶</span><span>Movie<span class="brand-accent">Sphere</span><small>YOUR MOVIE WORLD</small></span></a><p>Made for the love of movies.<p class="footer-author">Developed by <strong>Srilikhitha</strong></p>
+        <p class="footer-email">✉ srilikhitha127@gmail.com</p> <span>✦</span></p><small>MOVIES • DISCOVERY • RECOMMENDATIONS</small></footer>
+<div class="modal-backdrop" id="modal"><div class="modal-card"><button class="modal-close" id="modalClose">×</button><div id="modalBody"></div></div></div><div class="toast" id="toast"></div><script src="/static/app.js"></script>
+</body></html>
